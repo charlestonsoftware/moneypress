@@ -1,16 +1,17 @@
 === MoneyPress ===
-Plugin Name:  MoneyPress
 Contributors: charlestonsw
-Donate link: http://www.charlestonsw.com/product/moneypress/
 Tags: affiliate, marketing, store, products, amazon, buyat, ebay, cafepress, commission junction, cj
 Requires at least: 3.5
 Tested up to: 3.5.1
-Stable tag: 0.1
+Stable tag: 0.0.1
+Plugin Name:  MoneyPress
+Donate link: http://www.charlestonsw.com/product/moneypress/
 
-List products from your affiliate accounts with ease.  
-Enter your affiliate relationship settings, put a shortcode on a page and start selling.
+List products from your affiliate accounts with ease.  Enter your affiliate relationship settings, put a shortcode on a page and start selling.
 
 == Description ==
+
+[MoneyPress](http://www.charlestonsw.com/product/moneypress/) is a WordPress plugin that makes it easy to list products from your affiliate accounts.  Enter your affiliate relationship settings, put a shortcode on a page and start selling.
 
 Visit the [CSA](http://www.charlestonsw.com/) website to learn more about [MoneyPress](http://www.charlestonsw.com/product/moneypress/).
 
@@ -97,6 +98,13 @@ Give me a chance to address your concerns if this plugin doesn't earn 5 stars by
 
 == Frequently Asked Questions ==
 
+= How do I list products? =
+
+Use [shortcodes](http://support.wordpress.com/shortcodes/) to display products from your affiliate relationsihps.  Currently, MoneyPress provides the following shortcodes.
+
+* [[mpebay]](http://www.charlestonsw.com/support/documentation/moneypress/ebay/)
+
+
 = What percentage of sales does your plugin keep? =
 
 The free plugin will assign a CSA affiliate ID to two of the 9 products that come up in your shortcode, or about 20% of the potential revenue.
@@ -163,6 +171,6 @@ I update about once per month or more frequently as needed.
 
 Visit the [MoneyPress Release Notes page](http://www.charlestonsw.com/support/documentation/moneypress/release-notes/) for the full change log.
 
-= 0.1 (Soon) =
+= 0.0.1 =
 
 * Initial release.
