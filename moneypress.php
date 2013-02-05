@@ -3,7 +3,7 @@
 /*
  * Plugin Name: MoneyPress
  * Plugin URI: http://www.charlestonsw.com/product/moneypress/
- * Description: Bring the power of the WordPress.com cloud to your self-hosted WordPress. Jetpack enables you to connect your blog to a WordPress.com account to use the powerful features normally only available to WordPress.com users.
+ * Description: List products from your affiliate accounts with ease.  Enter your affiliate relationship settings, put a shortcode on a page and start selling.
  * Author: Charleston Software Associates
  * Version: 0.0.1
  * Author URI: http://www.charlestonsw.com
