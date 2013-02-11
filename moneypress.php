@@ -17,16 +17,22 @@ define( 'MONEYPRESS__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
 class MoneyPress {
 	/**
+	 * Error to display in admin_notice
+	 * @var string
+	 */
+	var $error = '';
+
+	/**
 	 * Message to display in admin_notice
 	 * @var string
 	 */
 	var $message = '';
 
-	/**
-	 * Error to display in admin_notice
-	 * @var string
-	 */
-	var $error = '';
+        /**
+         * What we call ourselves
+         * @var string
+         */
+        var $name = 'MoneyPress';
 
         /**
          * We use this prefix for options, CSS, etc.
@@ -43,6 +49,17 @@ class MoneyPress {
          * We use this often for other includes, so let's excercise the CPU less.
          */
         var $plugin_path = '';
+
+        //------------
+        // Our Objects
+        //------------
+
+        /**
+         * The MoneyPress Admin UI object
+         *
+         * @var MP_AdminUI - an Admin UI object
+         */
+        var $AdminUI = null;
 
 	/**
 	 * Singleton
@@ -87,7 +104,22 @@ class MoneyPress {
          * Called before admin_init()
          */
         function admin_menu() {
-            require_once($this->plugin_path . '/include/class.admin-ui.php');
+            $this->attach_AdminUI();
+            $this->AdminUI->connectAdminMenu();
+        }
+
+        /**
+         * Instantiate and attach the Admin UI object as needed.
+         */
+        function attach_AdminUI() {
+            if (!isset($this->AdminUI)) {
+                require_once($this->plugin_path . '/include/class.admin-ui.php');
+                $this->AdminUI = new MP_AdminUI(
+                            array(
+                                'parent' => $this
+                            )
+                        );
+            }
         }
 }
 
