@@ -7,6 +7,10 @@
  */
 class MoneyPress_AdminUI {
 
+    //------------------------------------------------------
+    // Properties
+    //------------------------------------------------------
+
     /**
      * The WordPress hook for the admin menu.
      * 
@@ -21,21 +25,43 @@ class MoneyPress_AdminUI {
      */
     private $plugin   = null;
 
+    //-----------------
+    // WPCSL shortcuts
+    //-----------------
+
+    /**
+     * The WPCSL settings object, shortcut to parent instantiated object.
+     *
+     * @var wpCSL_settings__mp
+     */
+    private $wpcSettings = null;
+
+
+    //------------------------------------------------------
+    // METHODS
+    //------------------------------------------------------
 
     /**
      * Initialize the AdminUI class.
      *
+     * Requires 'plugin' => WPCSL instantiated object.
+     *
      * @param array $params an associated array of properties and init values
      */
-    function __construct($params=null) {
-        if ($params !== null) {
-            if (is_array($params)) {
-                foreach ($params as $key=>$val) {
-                    $this->$key = $val;
-                }
+    function __construct($params) {
+        if (is_array($params)) {
+            foreach ($params as $key=>$val) {
+                $this->$key = $val;
             }
         }
 
+        // We must have a plugin parameters as a minimum.
+        //
+        if (!isset($this->plugin)) { return false; }
+
+        // Shortcuts
+        //
+        $this->wpcSettings = $this->plugin->WPCSL->settings;
     }
 
     /**
@@ -49,6 +75,7 @@ class MoneyPress_AdminUI {
      * Render the admin page.
      */
     function admin_page() {
-        print 'hello';
+        $this->wpcSettings->add_section(array('name'=>'header'));
+        $this->wpcSettings->render_settings_page();
     }
 }
