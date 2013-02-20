@@ -18,7 +18,8 @@ define( 'MONEYPRESS__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 /**
  * MoneyPress Class
  *
- * @property-read string name the name of the plugin
+ * @property-read string $name the name of the plugin
+ * @property wpCSL_plugin__mp $WPCSL a WPCSL object
  */
 class MoneyPress {
 
@@ -81,7 +82,7 @@ class MoneyPress {
         /**
          * The WPCSL helpers.
          *
-         * @var WPCSL - a WPCSL object
+         * @var wpCSL_plugin__mp WPCSL - a WPCSL object
          */
         public $WPCSL = null;
 
