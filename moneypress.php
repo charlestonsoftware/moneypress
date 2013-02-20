@@ -32,7 +32,7 @@ class MoneyPress {
          * What we call ourselves
          * @var string
          */
-        var $name = 'MoneyPress';
+        public $name = 'MoneyPress';
 
         /**
          * We use this prefix for options, CSS, etc.
@@ -83,7 +83,6 @@ class MoneyPress {
 	 */
 	function MoneyPress() {
             add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-            add_action( 'admin_init', array( $this, 'admin_init' ) );
 	}
 
         //----------------------
@@ -91,36 +90,16 @@ class MoneyPress {
         //----------------------
 
         /**
-         * Process admin_init() hook for WordPress
-         *
-         * Called after admin_menu().
-         */
-        function admin_init() {
-        }
-
-        /**
          * Process the admin menu hook for WordPress.
          *
          * Called before admin_init()
          */
         function admin_menu() {
-            $this->attach_AdminUI();
-            $this->AdminUI->connectAdminMenu();
+            require_once($this->plugin_path.'/class.moneypress-adminui.php');
+            $this->AdminUI = new MoneyPress_AdminUI(array('plugin'=>$this));
+            $this->AdminUI->create_AdminMenu();
         }
 
-        /**
-         * Instantiate and attach the Admin UI object as needed.
-         */
-        function attach_AdminUI() {
-            if (!isset($this->AdminUI)) {
-                require_once($this->plugin_path . '/include/class.admin-ui.php');
-                $this->AdminUI = new MP_AdminUI(
-                            array(
-                                'parent' => $this
-                            )
-                        );
-            }
-        }
 }
 
 class MoneyPress_Error extends WP_Error {}
